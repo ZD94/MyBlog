@@ -1,0 +1,41 @@
+
+<% include header %>
+<link rel="stylesheet" href="stylesheets/component.css">
+<link rel="stylesheet" href="stylesheets/demo.css">
+<link rel="stylesheet" href="stylesheets/normalize.css">
+
+
+<div class="container1 demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+
+            <form id='form1' role="form">
+                <ul class="archive">
+                    <% var lastday = 0 %>
+                    <% if(!posts[0]) { %>
+                    <p>标签云:</p>
+                    <p>暂无标签内容发布，请先发表内容。。。</p>
+                    <% } else { %>
+                    <% posts.forEach(function(post,index){ %>
+                    <% if(lastday != post.time.day ) {%>
+                    <li><h3><%= post.time.day %></h3></li>
+                    <p>标签云:</p>
+                    <% lastday = post.time.day }%>
+                    <li class="li"><a href="/u/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>
+        "><%= post.title %></a></li>
+                    <% }) %>
+                    <% } %>
+                </ul>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="js/TweenLite.min.js"></script>
+<script src="js/EasePack.min.js"></script>
+<script src="js/rAF.js"></script>
+<script src="js/demo-1.js"></script>
+<% include footer %>

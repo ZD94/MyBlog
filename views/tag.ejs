@@ -1,0 +1,23 @@
+<%include header %>
+<form class="form-horizontal" id="form">
+
+
+    <ul class="archive">
+        <% posts.forEach(function(post,index){ %>
+        <li><%= post.time.day %></li>
+        <li><a href="/u/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>"><%= post.title %></a></li>
+        <% }) %>
+    </ul>
+
+    <article id="yanZheng">
+        <% if (success) { %>
+        <div><%= success %></div>
+
+        <% } %>
+        <% if (error) { %>
+        <div><%= error %> </div>
+        <% } %>
+
+
+</form>
+<% include footer %>

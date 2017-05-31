@@ -1,0 +1,64 @@
+<% include header %>
+
+<link rel="stylesheet" href="stylesheets/component.css">
+<link rel="stylesheet" href="stylesheets/demo.css">
+<link rel="stylesheet" href="stylesheets/normalize.css">
+
+
+<div class="container1 demo-2">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+                    <p>请发表文章</p>
+            <form method='post' id='form2' class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="firstname" class="col-md-3 control-label "><span id="color">标题:</span></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="firstname" name="title" required><br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstname" class="col-md-3 control-label"><span id="color">标签:</span></label>
+                    <div class="col-md-8">
+                        <input type="text" class="col-md-3 postag" name="tag1">
+                        <input type="text" class="col-md-3 postag" name="tag2">
+                        <input type="text" class="col-md-3 postag" name="tag3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstname" class="col-md-3 control-label"><span id="color">内容:</span></label>
+                    <div class="col-md-8">
+                        <textarea name="post" id="question" placeholder="请填写内容" rows="10%" cols="60%" required></textarea><br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-10">
+                        <input type="submit" class="btn btn-warning FB" value="发表">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--<script src="js/TweenLite.min.js"></script>-->
+<!--<script src="js/EasePack.min.js"></script>-->
+<script src="js/rAF.js"></script>
+<script src="js/demo-2.js"></script>
+
+<!--<script>-->
+    <!--var simplemde = new SimpleMDE({-->
+        <!--status:false,-->
+        <!--styleSelectedText:false,-->
+    <!--});-->
+<!--</script>-->
+
+
+
+<% include footer %>

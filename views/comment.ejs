@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="col-md-12 column">
+        <nav class="comment">
+        <br>
+<% post.comments.forEach(function(comment){ %>
+<p>
+    <%= comment.name %>
+    <span class="info"> 回复于 <%= comment.time %></span>
+</p>
+        <p><%- comment.content %></p>
+        </nav>
+        <% })%>
+
+<% if (user) { %>
+<form method="post" action="/comment/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">
+    发布人:<%= user.name %>
+    <input type="hidden" name="name" value="<%= user.name %>"/><br><br>
+    <textarea name="content" rows="5" cols="60%" required></textarea><br>
+    <input class="btn btn-warning" type="submit" value="留言" id="sb2"/>
+</form>
+<% }else{ %>
+<form method="post">
+    <h5>回应请先<a href="/login">登录</a>或<a href="/reg">注册</a></h5>
+    <textarea name="content" rows="5" cols="60%" id="tb" required></textarea><br>
+    <input class="btn btn-warning" type="submit" value="留言" id="sb" />
+</form>
+<% } %>
+</div>
+</div>
+
+<script>
+    window.onload = function(){
+        const textarea = document.querySelector('#tb');
+        const button  = document.querySelector('#sb');
+        button.onclick = function(e){
+            e.preventDefault();
+            location.href = '/login';
+        }
+        textarea.onfocus = function(){
+            location.href =  '/login';
+        }
+    }
+
+    var simplemde = new SimpleMDE({
+        status:false,
+        styleSelectedText:false,
+    });
+</script>
+

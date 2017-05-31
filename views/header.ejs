@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/pluging/editor/dist/simplemde.min.css">
+
+    <script type="text/javascript" src="/pluging/editor/dist/simplemde.min.js"></script>
+</head>
+<body>
+<div class="header large">
+    <div class="inner">
+        <ul class="nav">
+            <li><a href="/">
+                    首页
+                </a></li>
+            <li><a href="/archive">
+                    存档
+                </a></li>
+            <% if(user) { %>
+            <li><a href="/post">
+                    发表
+                </a></li>
+            <li><a href="/logout">
+                    退出
+                </a></li>
+            <% } else { %>
+            <li><a href="/login">
+                    <span></span>登录
+                </a></li>
+            <li><a href="/reg">
+                    <span></span>注册
+                </a></li>
+            <% } %>
+        </ul>
+    </div>
+</div>
+
+
+

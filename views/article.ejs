@@ -1,0 +1,37 @@
+
+<% include header %>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <form id='form' role="form">
+                <p class="info">
+                    作者：<a href="/u/<%= post.name %>"><%= post.name %></a> |
+                    日期：<%= post.time.minute %> |
+                    标签：
+                    <% post.tags.forEach(function (tag, index) { %>
+                    <% if (tag) { %>
+                    <a class="tag"><%= tag %></a>
+                    <% } %>
+                    <% }) %>
+                </p>
+                <p><%- post.post %></p>
+                <p class="info">阅读：<%= post.pv %> | 评论：<%= post.comments.length %></p>
+                <p class="anniu">
+                    <% if( user && user.name == post.name ){ %>
+                    <span>
+        <a class="edit btn btn-primary" href="/edit/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">编辑</a>
+    </span>
+                    <span>
+        <a class="edit btn btn-danger" href="/remove/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">删除</a>
+    </span>
+                    <% } %>
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<% include comment %>
+<% include footer %>

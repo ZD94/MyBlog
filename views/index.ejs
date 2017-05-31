@@ -1,0 +1,189 @@
+<% include header %>
+
+<link href="stylesheets/style4.css" rel="stylesheet">
+<link href="stylesheets/animation.css" rel="stylesheet">
+<link rel='stylesheet' id='style-css' href='stylesheets/diapo.css' type='text/css' media='all'>
+
+
+<div id="mainbody">
+    <div class="info">
+        <figure>
+            <div style=" width:630px;height:250px;">
+                <div class="pix_diapo">
+                    <div data-thumb="images/17.jpg">
+                        <img src="images/17.jpg">
+                    </div>
+                    <div data-thumb="images/11.jpg">
+                        <img src="images/11.jpg">
+                    </div>
+                    <div data-thumb="images/12.jpg"
+                         data-time="7000">
+                        <img src="images/12.jpg">
+                    </div>
+                    <div data-thumb="images/13.jpg">
+                        <img src="images/13.jpg">
+                    </div>
+                    <div data-thumb="images/14.jpg">
+                        <img src="images/14.jpg">
+                    </div>
+                </div>
+            </div>
+        </figure>
+        <div class="card">
+            <h1>我的名片</h1>
+
+            <p>姓名：张栋</p>
+
+            <p> QQ：1060392986</p>
+
+            <p>Github:https://github.com/ZD94</p>
+
+        </div>
+    </div>
+
+    <div class="blogs">
+        <ul class="bloglist">
+
+            <% if(!posts[0]) { %>
+            <p class="PD">很抱歉，您还没发表文章...
+                <img class="img1" src="images/15.png" alt=""></p>
+            <% } else { %>
+            <% posts.forEach(function (post, index) { %>
+            <li id="AD">
+                <div class="arrow_box">
+                    <div class="ti"></div>
+                    <div class="ci"></div>
+                    <div class="row clearfix">
+                        <div class="col-md-4 column img">
+                            <!--<img src="images/0.jpg">-->
+                        </div>
+                        <h2 class="h2"><%= post.title %></h2>
+                        <!--<p class="neirong"><span><%- post.post %></span></p>-->
+                        <h5 class="neirong"><%- post.post %></h5>
+
+                        <span class="glyphicon glyphicon-user"></span><a class="yanshe" href="/u/<%= post.name %>"><%= post.name %></a>
+                        <a href="/u/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>"><input type="submit"
+                                                                                                       value="阅读全文"
+                                                                                                       class="btn btn-info submit"></a>
+
+                    </div>
+                     <ul class="details">
+
+                        <li class="likes"><span class="info1"><span
+                                        class="glyphicon glyphicon-eye-open">浏览：</span>(<%= post.pv %>) | <span
+                                        class="glyphicon glyphicon-comment"></span><%= post.comments.length %></span>
+                        </li>
+
+                        <li class="comments"><span class="ds-thread-count" data-thread-key="10060"></span></li>
+
+                        <li class="glyphicon glyphicon-time"><%= post.time.minute %></li>
+
+                    </ul>
+
+                </div>
+            </li>
+            <% }) %>
+            <% } %>
+            <%- include paging %>
+        </ul>
+
+
+        <aside>
+            <div class="search">
+                <form class="searchform" method="get" action="#">
+                    <input type="text" name="s" id="search" value="Search" onfocus="this.value=''"
+                           onblur="this.value='Search'">
+                </form>
+            </div>
+            <div class="sunnav">
+                <iframe width="310" scrolling="no" height="60" frameborder="0" allowtransparency="true"
+                        src="http://i.tianqi.com/index.php?c=code&id=38&icon=1&num=3"></iframe>
+            </div>
+
+            <div class="tuijian">
+                <h2>推荐文章</h2>
+                <ol>
+                    <li><span><strong>1</strong></span><a
+                                href="#">关于本站与秋比网分享会员帐号的说明</a></li>
+                    <li><span><strong>2</strong></span><a
+                                href="#">利用vpn天猫超市免费得50元红包</a></li>
+                    <li><span><strong>3</strong></span><a href="#">教你微博大量吸粉</a></li>
+                    <li><span><strong>4</strong></span><a href="#">教你手机做任务，轻轻松松拿20元现金红包</a>
+                    </li>
+                    <li><span><strong>5</strong></span><a href="#">2015软院青志协招新视频</a>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="clicks">
+                <h2>热门点击</h2>
+                <ol>
+
+                    <li><span><a href="#">帐号分享</a></span><a
+                                href="#">爱奇艺会员帐号每日分享(22:00更新)</a></li>
+
+                    <li><span><a href="#">帐号分享</a></span><a
+                                href="#">土豆会员(12.24日更新)</a></li>
+
+                    <li><span><a href="#">帐号分享</a></span><a
+                                href="#">迅雷会员(12.24日更新)</a></li>
+
+                    <li><span><a href="#">技术文章</a></span><a
+                                href="#">利用vpn天猫超市免费得50元红包</a></li>
+
+                    <li><span><a href="#">技术文章</a></span><a
+                                href="#">教大家360搜索联盟添加文字链</a></li>
+                </ol>
+            </div>
+            <div class="guidang">
+
+                <h2>文章归档</h2>
+
+                <ol>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a href="#">2017年04月(2)</a>
+                    </li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a href="#">2017年02月(1)</a>
+                    </li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a href="#">2017年01月(1)</a>
+                    </li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a
+                                href="#">2015年12月(11)</a></li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a
+                                href="#">2015年11月(11)</a></li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a href="#">2015年10月(9)</a>
+                    </li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a
+                                href="#">2015年09月(22)</a></li>
+                    <li style="font-size:13px;">&nbsp;&nbsp;<a href="#">2015年08月(9)</a>
+                    </li>
+                </ol>
+            </div>
+
+        </aside>
+    </div>
+</div>
+
+<script type='text/javascript' src='js/jquery.min.js'></script>
+<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+<script type='text/javascript' src='js/hover.js'></script>
+<script type='text/javascript' src='js/diapo.js'></script>
+<script>
+    $(function () {
+        $(".footer-bottom p span").append($("#cnzz_stat_icon_1256143886"));
+        $("#cnzz_stat_icon_1256143886 img").css('margin', '-3px 3px');
+    })
+</script>
+
+<script>
+    $(function () {
+        $('.pix_diapo').diapo();
+    });
+</script>
+
+<script>
+    $('.submit').on('click',()=>{
+        console.log(011111111111111)
+    })
+
+</script>
+<% include footer %>

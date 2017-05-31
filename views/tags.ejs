@@ -1,0 +1,17 @@
+<% include header %>
+<form class="form-horizontal" id="form">
+    <% posts.forEach(function(tag,index){ %>
+    <span><a class="tag" href="/tags/<%= tag %>"><%= tag %></a></span>
+    <%  }) %>
+
+    <article id="yanZheng">
+        <% if (success) { %>
+        <div><%= success %></div>
+
+        <% } %>
+        <% if (error) { %>
+        <div><%= error %> </div>
+        <% } %>
+</form>
+<% include footer %>
+

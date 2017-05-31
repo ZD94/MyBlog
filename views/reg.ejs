@@ -1,0 +1,52 @@
+<% include header%>
+
+
+<link rel="stylesheet" href="stylesheets/style1.css">
+<link rel="stylesheet" href="stylesheets/style3.css">
+
+
+
+<div>
+
+</div>
+<div class="page-container">
+    <p class="blue"><a href="#">Register</a></p>
+    <form method='post'  class="form-horizontal" role="form">
+
+        <div>
+            <input type="text"  id="firstname" name="name" placeholder="Username" required />
+        </div>
+        <div>
+            <input type="password"  id="firstname" name="password" placeholder="Password" required/>
+        </div>
+
+        <div>
+            <input type="password"  id="firstname" name="password_re" placeholder="Confirm Password" required/>
+        </div>
+
+        <div>
+            <input type="text"  id="firstname" name="email" placeholder="E-mail" required/>
+        </div>
+        <input id="submit" type="submit" value="Sign in" style="background: orange">
+
+
+    </form>
+
+</div>
+
+
+
+
+<div class="form-group">
+    <div class="col-sm-offset-5 col-sm-5" id="yanZheng">
+        <% if (success) { %>
+        <div><%= success %></div>
+
+        <% } %>
+        <% if (error) { %>
+        <div class="error"><%= error %> </div>
+        <% } %>
+    </div>
+</div>
+
+<% include footer %>
